@@ -1,6 +1,7 @@
 # Lab Report 1:
 
 1.Look up your UCSD Student account at https://sdacs.ucsd.edu/~icc/index.php
+
 2.Click the button beginning with cse15l, which will direct you to your CSE 15L class-specific account.
 
 ![image](https://user-images.githubusercontent.com/122490447/211925936-51e5161e-f1a2-42e3-8e0b-09342143405c.png)
@@ -10,11 +11,13 @@
 ![image](https://user-images.githubusercontent.com/122490447/211926451-45393696-9b8d-4be3-9a6c-0f50618a0e62.png)
 
 4.Download and install Visual Studio Code if you do not already have it at https://code.visualstudio.com/.
+
 5.Open Visual Studio Code, which should look similar to this page:
 
 ![image](https://user-images.githubusercontent.com/122490447/211929895-2cbe7da2-7fc4-4f2f-8fae-1136fe079fd7.png)
 
 6.If you are on Windows, install git, which provides important bash-based terminal commands that we will use, at https://gitforwindows.org/
+
 7.Go to Visual Studio Code and open a new terminal on it, either via (Ctrl or Cmd + `) or following the terminal dropdown option pictured below.
 
 ![image](https://user-images.githubusercontent.com/122490447/211927340-438d33cd-122a-494a-81ad-02028af5888a.png)
