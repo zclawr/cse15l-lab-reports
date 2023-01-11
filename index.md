@@ -20,7 +20,7 @@
 
 7.Go to Visual Studio Code and open a new terminal on it, either via (Ctrl or Cmd + `) or following the terminal dropdown option pictured below.
 
-![image](https://user-images.githubusercontent.com/122490447/211927340-438d33cd-122a-494a-81ad-02028af5888a.png)
+![image](https://user-images.githubusercontent.com/122490447/211932878-129c5893-8c58-400c-943c-9c3f8503a2bb.png)
 
 8.To connect to the ieng6 campus server, use the ssh command below, replacing the brackets and bracket-bounded content with your CSE 15L account-specific characters, pictured below as the last 3 characters in the username.
 ```
