@@ -37,3 +37,7 @@ $ ssh cs15lwi23{YOUR ACCOUND-SPECIFIC CHARACTERS HERE}@ieng6.ucsd.edu
 11.You're now connected to the server! Try typing in a series of commands to navigate the remote directory. For starters, perhaps, try entering in pwd like the example below. Follow the link for a cheat sheet on common terminal commands to try [here](https://www.educative.io/blog/bash-shell-command-cheat-sheet)
 
 ![image](https://user-images.githubusercontent.com/122490447/211930114-7f830a31-b73d-45eb-82da-07ccabe3fe85.png)
+
+pwd -- prints the working directory as a full absolute path, this is interesting because it shows us that the ieng6 server is running on linux, as indicated by the linux folder within the home directory. 
+
+ls -lat -- lists the files in the directory, in this case my own account-specific ieng6 server-space. This command is interesting because it uses <b>three</b> separate flags: <b>l</b> (long format), <b>a</b> (including hidden files starting with .), and <b>t</b> (sort by time). This is important because it shows that we can, in some cases, "contatenate" flags into one larger expression. From this command we learn that the directory has 124 files!
