@@ -2,7 +2,8 @@
 
 <h2>Part 1:</h2> 
 
-StringServer:
+<h3>StringServer</h3>
+<code>
 public class StringServer implements URLHandler{
     String messages = "";
     public static void main(String[] args){
@@ -29,19 +30,21 @@ public class StringServer implements URLHandler{
         return "404 Path Not Found";
     }
 }
+</code>
 
 <img width="394" alt="Screen Shot 2023-01-30 at 6 44 25 PM" src="https://user-images.githubusercontent.com/122490447/215649862-f6b5d4f3-b418-40ea-8fc1-d8b6e98ad732.png">
 
-handleRequest is called, where the url passed in has the query "s=hi".
+<code>handleRequest</code> 
+is called, where the url passed in has the query <code>"s=hi"</code>
 Prior to calling the function, the StringServer class instance running the server has it's messages instance variable set to an empty string.
-After the request, "hi", the second query parameter, is concatenated to the messages instance variable and returned by the method for display on the page.
+After the request, <code>"hi"</code>, the second query parameter, is concatenated to the messages instance variable and returned by the method for display on the page.
 
 <img width="421" alt="Screen Shot 2023-01-30 at 6 45 45 PM" src="https://user-images.githubusercontent.com/122490447/215649872-74f299de-230e-412e-a1ff-baccaa658c48.png">
 
-
-handleRequest is called, where the url passed in has the query "s=hello3".
+<code>handleRequest</code> 
+is called, where the url passed in has the query <code>"s=hello3"</code>
 Prior to calling the function, the StringServer class instance running the server has it's messages instance variable contains "hello1\nhello2\n", where each \n is a newline.
-After the request, "hello3", the second query parameter, is concatenated to the messages instance variable and returned by the method for display on the page.
+After the request, <code>"hello3"</code>, the second query parameter, is concatenated to the messages instance variable and returned by the method for display on the page.
 
 <h2>Part 2:</h2>
 
