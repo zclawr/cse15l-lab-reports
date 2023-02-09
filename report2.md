@@ -3,6 +3,7 @@
 <h2>Part 1:</h2> 
 
 <h3>StringServer</h3>
+<code>
 ```java
 public class StringServer implements URLHandler{
     String messages = "";
@@ -31,6 +32,7 @@ public class StringServer implements URLHandler{
     }
  }
 ```
+</code>
 <hr>
 <img width="394" alt="Screen Shot 2023-01-30 at 6 44 25 PM" src="https://user-images.githubusercontent.com/122490447/215649862-f6b5d4f3-b418-40ea-8fc1-d8b6e98ad732.png">
 <hr>
