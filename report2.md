@@ -3,9 +3,8 @@
 <h2>Part 1:</h2> 
 
 <h3>StringServer</h3>
-<code>
-    
-    public class StringServer implements URLHandler{
+```java
+public class StringServer implements URLHandler{
     String messages = "";
     public static void main(String[] args){
         try{
@@ -30,9 +29,8 @@
         }
         return "404 Path Not Found";
     }
-    }
-</code>
-
+ }
+```
 <hr>
 <img width="394" alt="Screen Shot 2023-01-30 at 6 44 25 PM" src="https://user-images.githubusercontent.com/122490447/215649862-f6b5d4f3-b418-40ea-8fc1-d8b6e98ad732.png">
 <hr>
@@ -51,8 +49,7 @@ After the request, <code>"hello3"</code>, the second query parameter, is concate
 <h2>Part 2:</h2>
 
 <h3>Failure-inducing input:</h3>
-<code>
-    
+```java
     @Test
     public void testFilter(){
         List<String> ls = new ArrayList();
@@ -68,11 +65,10 @@ After the request, <code>"hello3"</code>, the second query parameter, is concate
         ls.remove("Apple");
         assertArrayEquals(ls.toArray(), filtered.toArray());
     }
-</code>
+```
 
 <h3>Success-inducing input:</h3>
-<code>
-    
+```java 
     @Test
     public void testFilter2(){
         List<String> ls = new ArrayList();
@@ -86,7 +82,7 @@ After the request, <code>"hello3"</code>, the second query parameter, is concate
         ls.remove("Apple");
         assertArrayEquals(ls.toArray(), filtered.toArray());
     }
-</code>
+```
 
 <h3>Failure symptom:</h3>
 <img width="534" alt="Screen Shot 2023-01-30 at 7 02 38 PM" src="https://user-images.githubusercontent.com/122490447/215652825-12abf933-4da7-45ad-8fcf-9845c4981c1b.png">
@@ -95,8 +91,7 @@ After the request, <code>"hello3"</code>, the second query parameter, is concate
 <img width="537" alt="Screen Shot 2023-01-30 at 7 03 08 PM" src="https://user-images.githubusercontent.com/122490447/215652859-51e32343-cef9-492b-a29e-2c6ce6003e53.png">
 
 <h3>Bug before fix:</h3>
-<code>
-    
+```java   
     static List<String> filter(List<String> list, StringChecker sc) {
     List<String> result = new ArrayList<>();
     for(String s: list) {
@@ -106,11 +101,10 @@ After the request, <code>"hello3"</code>, the second query parameter, is concate
     }
     return result;
     }
-</code>
+```
 
 <h3>Bug after fix:</h3>
-<code>
-    
+```java
     static List<String> filter(List<String> list, StringChecker sc) {
     List<String> result = new ArrayList<>();
     for(String s: list) {
@@ -120,7 +114,7 @@ After the request, <code>"hello3"</code>, the second query parameter, is concate
     }
     return result;
     }
-</code>
+```
 
 The fix addresses the issue, which is that the order of elements filtered is incorrect, by changing the filtered list adding behavior from prepending each element by adding to the 0th index to appending it by removing the index argument entirely. This causes the filtered list's order to match that of the inputted list, fixing the issue.
 
