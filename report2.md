@@ -30,7 +30,7 @@
         }
         return "404 Path Not Found";
     }
-}
+    }
 </code>
 
 <hr>
@@ -51,10 +51,42 @@ After the request, <code>"hello3"</code>, the second query parameter, is concate
 <h2>Part 2:</h2>
 
 <h3>Failure-inducing input:</h3>
-<img width="704" alt="Screen Shot 2023-01-30 at 6 59 23 PM" src="https://user-images.githubusercontent.com/122490447/215652800-a215b9f1-1eee-44a3-a17a-9d5c3c8e0403.png">
+<code>
+    
+    @Test
+    public void testFilter(){
+        List<String> ls = new ArrayList();
+        ls.add("Apple");
+        ls.add("Pear");
+        ls.add("Orange");
+        ls.add("Grape");
+        List<String> filtered = ListExamples.filter(ls, new StringChecker() {
+            public boolean checkString(String s){
+                return s.contains("r");
+            }
+        });
+        ls.remove("Apple");
+        assertArrayEquals(ls.toArray(), filtered.toArray());
+    }
+</code>
 
 <h3>Success-inducing input:</h3>
-<img width="547" alt="Screen Shot 2023-01-30 at 7 01 13 PM" src="https://user-images.githubusercontent.com/122490447/215652811-c6a3839d-94ce-437e-9e36-5c90f12e4eb6.png">
+<code>
+    
+    @Test
+    public void testFilter2(){
+        List<String> ls = new ArrayList();
+        ls.add("Pear");
+        ls.add("Apple");
+        List<String> filtered = ListExamples.filter(ls, new StringChecker() {
+            public boolean checkString(String s){
+                return s.contains("r");
+            }
+        });
+        ls.remove("Apple");
+        assertArrayEquals(ls.toArray(), filtered.toArray());
+    }
+</code>
 
 <h3>Failure symptom:</h3>
 <img width="534" alt="Screen Shot 2023-01-30 at 7 02 38 PM" src="https://user-images.githubusercontent.com/122490447/215652825-12abf933-4da7-45ad-8fcf-9845c4981c1b.png">
@@ -63,10 +95,32 @@ After the request, <code>"hello3"</code>, the second query parameter, is concate
 <img width="537" alt="Screen Shot 2023-01-30 at 7 03 08 PM" src="https://user-images.githubusercontent.com/122490447/215652859-51e32343-cef9-492b-a29e-2c6ce6003e53.png">
 
 <h3>Bug before fix:</h3>
-<img width="491" alt="Screen Shot 2023-01-30 at 7 03 58 PM" src="https://user-images.githubusercontent.com/122490447/215652868-cc57cb3f-697a-43b4-ba62-948b894ce91a.png">
+<code>
+    
+    static List<String> filter(List<String> list, StringChecker sc) {
+    List<String> result = new ArrayList<>();
+    for(String s: list) {
+      if(sc.checkString(s)) {
+        result.add(0, s);
+      }
+    }
+    return result;
+    }
+</code>
 
 <h3>Bug after fix:</h3>
-<img width="491" alt="Screen Shot 2023-01-30 at 7 04 25 PM" src="https://user-images.githubusercontent.com/122490447/215652875-f494ed76-1195-4af1-859d-ab2f7989c9d9.png">
+<code>
+    
+    static List<String> filter(List<String> list, StringChecker sc) {
+    List<String> result = new ArrayList<>();
+    for(String s: list) {
+      if(sc.checkString(s)) {
+        result.add(s);
+      }
+    }
+    return result;
+    }
+</code>
 
 The fix addresses the issue, which is that the order of elements filtered is incorrect, by changing the filtered list adding behavior from prepending each element by adding to the 0th index to appending it by removing the index argument entirely. This causes the filtered list's order to match that of the inputted list, fixing the issue.
 
